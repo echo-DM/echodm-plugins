@@ -1,0 +1,8 @@
+{
+  "name": "anti-rip",
+  "version": "1.0.0",
+  "description": "防猝死插件 - 通过疲劳自测评估猝死风险指数",
+  "author": {
+    "name": "echodm"
+  }
+}

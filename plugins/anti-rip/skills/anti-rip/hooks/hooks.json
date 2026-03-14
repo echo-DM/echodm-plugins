@@ -1,0 +1,17 @@
+{
+  "description": "在每次会话开始时显示当前猝死风险指数",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"${CLAUDE_PLUGIN_ROOT}/skills/anti-rip/hooks/show_risk.sh\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

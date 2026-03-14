@@ -1,0 +1,13 @@
+{
+  "name": "echodm-plugins",
+  "owner": {
+    "name": "echodm"
+  },
+  "plugins": [
+    {
+      "name": "anti-rip",
+      "source": "./plugins/anti-rip",
+      "description": "防猝死插件 - 通过疲劳自测评估猝死风险指数"
+    }
+  ]
+}
