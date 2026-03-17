@@ -7,6 +7,7 @@
     python3 rip.py          # 查看当前状态
     python3 rip.py -fa 3    # 设置疲劳蓄积度为3，基准风险指数
     python3 rip.py -da 15   # 增加风险指数 15 点
+    python3 rip.py -r       # 重置所有疲劳数据
 """
 
 import argparse
@@ -16,7 +17,7 @@ import os
 # 添加 lib 路径
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'lib'))
 
-from risk_index import update_baseline, update_risk, get_current_status, get_risk_level, get_risk_advice
+from risk_index import update_baseline, update_risk, get_current_status, get_risk_level, get_risk_advice, reset_data
 
 
 def main():
@@ -25,8 +26,16 @@ def main():
                         help='疲劳蓄积度 (0-7)，设置基准风险指数')
     parser.add_argument('-da', '--add-risk', type=int,
                         help='增加风险指数点数 (0-100)')
+    parser.add_argument('-r', '--reset', action='store_true',
+                        help='重置所有疲劳数据')
 
     args = parser.parse_args()
+
+    # -r: 重置所有数据
+    if args.reset:
+        reset_data()
+        print("已重置所有疲劳数据")
+        sys.exit(0)
 
     # -fa: 设置基准风险指数
     if args.fatigue is not None:
