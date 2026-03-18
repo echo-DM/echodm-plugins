@@ -216,10 +216,12 @@ def update_baseline(fatigue_points):
     return baseline_risk
 
 
-def update_risk(risk_score):
+def update_risk(risk_score, is_daily=False):
     data = get_or_init_data()
     data['current_risk'] = risk_score
     data['last_assessment'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    if is_daily:
+        data['last_daily_check'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     save_data(data)
 

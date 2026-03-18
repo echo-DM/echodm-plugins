@@ -19,6 +19,9 @@ python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -fa 3
 
 # Add daily risk points after daily assessment
 python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -da 15
+
+# Reset all data (clear fatigue history)
+python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -r
 ```
 
 ### Development
