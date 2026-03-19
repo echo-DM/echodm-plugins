@@ -77,41 +77,50 @@ def fatigue_to_risk(fatigue_points):
 
 def get_risk_level(risk_index):
     """根据风险指数获取等级和描述"""
-    if risk_index <= 20:
+    if risk_index <= 40:
         return "低风险", "安全区，请继续保持良好的生活习惯"
-    elif risk_index <= 45:
-        return "偏高", "需要注意休息，避免过度劳累"
-    elif risk_index <= 75:
-        return "高危", "危险区，建议尽快安排体检"
+    elif risk_index <= 60:
+        return "中风险", "身体已出现疲劳信号，需要调整"
+    elif risk_index <= 80:
+        return "高风险", "危险区，建议尽快安排体检"
+    elif risk_index <= 99:
+        return "高危风险", "极其危险，请立即休息并考虑就医"
     else:
-        return "极度危险", "极其危险，请立即休息并考虑就医"
+        return "临界区", "生死时刻，立即就医"
 
 
 def get_risk_advice(risk_index):
     """根据风险指数获取建议"""
-    if risk_index <= 20:
+    if risk_index <= 40:
         return [
             "继续保持规律的作息时间",
             "保证充足的睡眠（7-8小时）",
             "适度运动，保持身体健康"
         ]
-    elif risk_index <= 45:
+    elif risk_index <= 60:
         return [
             "注意休息，避免熬夜",
             "增加睡眠时间，争取22点前入睡",
             "减少加班，注意工作节奏",
             "适当进行放松活动"
         ]
-    elif risk_index <= 75:
+    elif risk_index <= 80:
         return [
             "强烈建议近期安排全面体检",
             "立即调整工作强度，保证充足休息",
             "如有不适症状，请及时就医",
             "避免剧烈运动和过度劳累"
         ]
-    else:
+    elif risk_index <= 99:
         return [
             "【紧急】请立即停止工作，充分休息",
+            "如有胸闷、胸痛、心悸等症状，请立即就医",
+            "联系家人或朋友，确保有人陪伴",
+            "避免独自驾车或进行危险活动"
+        ]
+    else:
+        return [
+            "【生死时刻】立即就医！",
             "如有胸闷、胸痛、心悸等症状，请立即就医",
             "联系家人或朋友，确保有人陪伴",
             "避免独自驾车或进行危险活动"
