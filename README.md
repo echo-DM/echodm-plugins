@@ -16,11 +16,17 @@ Claude Code 插件集合，为程序员打造健康与效率工具。
 **使用方式**：
 ```
 # Claude Code 中
-"猝死风险评估" 或 "/anti-rip"
+"猝死风险评估" / "疲劳自测" / "健康风险检查" 或 "/anti-rip"
 
 # 命令行
-python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py
+python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py        # 查看状态
+python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -e     # 检查评估完成
+python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -fa 3  # 设置基准疲劳值
+python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -da 15 # 添加每日风险点
+python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -r      # 重置数据
 ```
+
+> **提示**：每次启动 Claude Code 时会自动显示当前风险指数
 
 **详情**：见 [plugins/anti-rip/README.md](plugins/anti-rip/README.md)
 

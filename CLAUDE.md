@@ -14,13 +14,13 @@ This is a Claude Code plugin for **anti-sudden-death health assessment** (程序
 # View current risk status (run from project root)
 python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py
 
-# Set baseline fatigue level (0-7) after full assessment
+# Set baseline fatigue level (0-7) after full assessment: -fa <points>
 python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -fa 3
 
-# Add daily risk points after daily assessment
+# Add daily risk points after daily assessment: -da <points>
 python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -da 15
 
-# Reset all data (clear fatigue history)
+# Reset all data (clear fatigue history): -r
 python3 plugins/anti-rip/skills/anti-rip/scripts/rip.py -r
 ```
 
@@ -63,3 +63,10 @@ echodm-plugins/                          # Plugin collection root
 - Daily risk accumulation from questionnaire
 - Risk levels: 0-20 (低风险), 21-45 (偏高), 46-75 (高危), 76-100 (极度危险)
 - P0 symptoms (胸闷/胸痛/心悸/etc.) immediately set risk to 100
+
+### Modifying the Plugin
+
+- **Adding questions**: Edit `references/full_assessment_questions.md` or `daily_assessment_questions.md`
+- **Risk algorithm changes**: Modify `lib/risk_index.py` (data at `~/.anti-rip-skill/data.json`)
+- **Plugin manifest**: `.claude-plugin/plugin.json` defines commands, skills, and hooks
+- **Skill invocation**: `/anti-rip` or keywords trigger the skill when Claude Code has this plugin loaded
